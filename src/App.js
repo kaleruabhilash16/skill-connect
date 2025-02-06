@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Features from "./components/Features";
+import HowItWorks from "./components/HowItWorks";
 import Footer from "./components/Footer";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div>
       <Navbar />
       <Home />
-      <Features />
+      <HowItWorks />
       <Footer />
     </div>
   );

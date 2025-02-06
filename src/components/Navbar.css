@@ -25,8 +25,24 @@
 .nav-links a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  color: #f39c12;
 }
 
 .user-icon {
   cursor: pointer;
+}
+.nav-button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  color: #f39c12;
 }

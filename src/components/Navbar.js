@@ -2,6 +2,12 @@ import React from "react";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const scrollToHowItWorks = () => {
+    document
+      .getElementById("how-it-works")
+      .scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <nav className="navbar">
       <div className="logo">VIT-AP SkillConnect</div>
@@ -10,7 +16,9 @@ const Navbar = () => {
           <a href="#home">Home</a>
         </li>
         <li>
-          <a href="#search">Search</a>
+          <button onClick={scrollToHowItWorks} className="nav-button">
+            How It Works
+          </button>
         </li>
         <li>
           <a href="#projects">Projects</a>
