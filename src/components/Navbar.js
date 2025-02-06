@@ -1,24 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="logo">Skill Connect</div>
+      <div className="logo">VIT-AP SkillConnect</div>
       <ul className="nav-links">
         <li>
-          <Link to="/">Home</Link>
+          <a href="#home">Home</a>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <a href="#search">Search</a>
         </li>
         <li>
-          <Link to="/projects">Projects</Link>
+          <a href="#projects">Projects</a>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <a href="#forum">Forum</a>
         </li>
+        <li className="user-icon">👤</li>
       </ul>
     </nav>
   );

@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  background: #111;
+  color: white;
+}
+
+.footer-links h3,
+.footer-left h2 {
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-social span {
+  display: flex;
+  gap: 10px;
+}
