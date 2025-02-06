@@ -47,8 +47,8 @@ const Navbar = () => {
             <a href="/how-it-works" className="nav-link">
               How It Works
             </a>
-            <a href="/forum" className="nav-link">
-              Forum
+            <a href="/faq" className="nav-link">
+              FAQs
             </a>
             <a href="/about" className="nav-link">
               About Us
@@ -79,8 +79,8 @@ const Navbar = () => {
           <a href="/how-it-works" className="nav-link">
             How It Works
           </a>
-          <a href="/forum" className="nav-link">
-            Forum
+          <a href="/faq" className="nav-link">
+            FAQs
           </a>
           <a href="/about" className="nav-link">
             About Us

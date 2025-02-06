@@ -23,6 +23,31 @@ const HowItWorks = () => {
           <p>Use chat, file sharing, and built-in coding tools.</p>
         </div>
       </div>
+
+      {/* Why Join Us Section */}
+      <section className="why-join-us">
+        <h2>Why Join Us?</h2>
+        <div className="benefits-container">
+          <div className="benefit-card">
+            <h3>🚀 Turn Ideas into Reality</h3>
+            <p>Bring your project ideas to life with the right team.</p>
+          </div>
+          <div className="benefit-card">
+            <h3>🤝 Meet Talented People</h3>
+            <p>
+              Connect with like-minded developers, designers, and innovators.
+            </p>
+          </div>
+          <div className="benefit-card">
+            <h3>📈 Grow Your Skills</h3>
+            <p>Work on real-world projects to enhance your expertise.</p>
+          </div>
+          <div className="benefit-card">
+            <h3>🌟 Gain Recognition</h3>
+            <p>Showcase your projects and build your professional portfolio.</p>
+          </div>
+        </div>
+      </section>
     </section>
   );
 };
