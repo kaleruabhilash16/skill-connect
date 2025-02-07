@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import "./Navbar.css";
-import logo from "../assets/images/logo.png"; // Adjust path
+import logo from "../assets/images/logo.png"; // Adjust path accordingly
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user, logout } = useAuth(); // Authentication state
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,63 +32,56 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
-        {/* 📌 Left Div: Logo */}
+        {/* 📌 Logo Section */}
         <div className="navbar-logo-container">
-          <img
-            src={logo}
-            alt="VIT-AP SkillConnect Logo"
-            className="logo-image"
-          />
+          <Link to="/">
+            <img src={logo} alt="Skill Connect Logo" className="logo-image" />
+          </Link>
         </div>
 
-        {/* 📍 Right Div: Nav Links */}
-        <div className="navbar-links-container">
-          <div className="nav-links">
-            <a href="/" className="nav-link">
-              Home
-            </a>
-            <a href="/how-it-works" className="nav-link">
-              How It Works
-            </a>
-            <a href="/faq" className="nav-link">
-              FAQs
-            </a>
-            <a href="/about" className="nav-link">
-              About Us
-            </a>
-            <div className="all-btn">
-              <button className="login-btn">Login</button>
-              <button className="signup-btn">Sign up</button>
-            </div>
-          </div>
-
-          {/* 📱 Mobile Menu Button */}
-          <button
-            className="mobile-menu-button"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? "✕" : "☰"}
-          </button>
-        </div>
-      </div>
-
-      {/* 📲 Mobile Menu */}
-      <div className={`mobile-menu ${isMobileMenuOpen ? "active" : ""}`}>
-        <div className="mobile-nav-links">
-          <a href="/" className="nav-link">
+        {/* 📍 Navigation Links */}
+        <div className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
+          <Link to="/" className="nav-link">
             Home
-          </a>
-          <a href="/how-it-works" className="nav-link">
+          </Link>
+          <Link to="/how-it-works" className="nav-link">
             How It Works
-          </a>
-          <a href="/faq" className="nav-link">
+          </Link>
+          <Link to="/faq" className="nav-link">
             FAQs
-          </a>
-          <a href="/about" className="nav-link">
+          </Link>
+          <Link to="/about" className="nav-link">
             About Us
-          </a>
+          </Link>
+
+          {/* 🔑 Auth Section */}
+          {user ? (
+            <div className="user-section">
+              <span className="user-name">👤 {user.email}</span>
+              <button className="logout-btn" onClick={logout}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className="auth-buttons">
+              <Link to="/login" className="login-btn">
+                Login
+              </Link>
+              <Link to="/signup" className="signup-btn">
+                Sign Up
+              </Link>
+            </div>
+          )}
         </div>
+
+        {/* 📱 Mobile Menu Button */}
+        <button
+          className="mobile-menu-button"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? "✕" : "☰"}
+        </button>
       </div>
     </nav>
   );

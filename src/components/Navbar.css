@@ -1,62 +1,51 @@
 /* 🏠 Navbar Styling */
 .navbar {
-  position: fixed; /* Keep navbar fixed at the top */
+  position: fixed;
   top: 0;
   width: 100%;
   background-color: #ffffff;
   transition: all 0.3s ease-in-out;
   z-index: 1000;
   height: 85px;
+  display: flex;
+  align-items: center;
 }
 
 /* 🚀 Navbar Container */
 .navbar-container {
   display: flex;
-  justify-content: space-between; /* Push left and right divs apart */
+  justify-content: space-between;
   align-items: center;
   padding: 20px 20px;
-  margin: 0;
+  width: 100%;
 }
 
-/* 📌 Left Div: Move Logo to Complete Left */
+/* 📌 Left Div: Logo */
 .navbar-logo-container {
   display: flex;
   align-items: center;
-  flex-grow: 1;
-  margin-right: 400px; /* Takes up remaining space to push links right */
 }
 
 .logo-image {
-  width: 200px;
+  width: 180px;
   padding: 10px;
 }
 
-/* 📍 Right Div: Move Nav Links to Complete Right */
-.navbar-links-container {
-  padding: 5px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* 🚀 Navigation Links */
+/* 📍 Right Div: Nav Links */
 .nav-links {
-  display: none; /* Hide on mobile */
-}
-
-@media (min-width: 768px) {
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-  }
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 /* 🎯 Navbar Links */
 .nav-link {
-  color: #374151;
+  color: black;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease;
-  padding: 0.5rem;
+  padding: 10px 15px;
 }
 
 .nav-link:hover {
@@ -65,98 +54,96 @@
 
 /* 📱 Mobile Menu Button */
 .mobile-menu-button {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
+  display: none;
   background: none;
   border: none;
   color: #374151;
-  font-size: 24px;
-}
-
-@media (min-width: 768px) {
-  .mobile-menu-button {
-    display: none;
-  }
-}
-
-/* 📲 Mobile Menu */
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 4rem;
-  right: 0;
-  width: 250px;
-  height: calc(100vh - 4rem);
-  background-color: white;
-  padding: 1rem;
-  transition: opacity 0.3s ease-in-out;
-  opacity: 0;
-}
-
-.mobile-menu.active {
-  display: block;
-  opacity: 1;
-}
-
-/* 📌 Mobile Navigation Links */
-.mobile-nav-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  gap: 1.5rem;
-}
-
-/* 🎭 Scrolled Effect */
-.navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-/* 🖥 Hide Mobile Menu on Desktop */
-@media (min-width: 768px) {
-  .mobile-menu {
-    display: none !important;
-  }
-}
-.login-btn {
-  background-color: transparent;
-  border: 2px solid green;
-  color: black;
-  padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  height: 40px;
-  width: 120px;
-  font-size: 15px;
+  font-size: 28px;
   cursor: pointer;
+}
 
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 85px;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+}
+
+/* 🔑 Auth Buttons */
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.login-btn,
+.signup-btn {
+  padding: 10px 15px;
+  font-size: 15px;
+  border: 2px solid;
   border-radius: 4px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
+
+.login-btn {
+  border-color: green;
+  color: black;
+}
+
 .login-btn:hover {
-  background-color: #45a049;
+  background-color: green;
   color: white;
 }
+
 .signup-btn {
-  margin-left: 12px;
-  background-color: transparent;
-  border: 2px solid red;
+  border-color: red;
   color: black;
-  padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  height: 40px;
-  width: 120px;
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .signup-btn:hover {
   background-color: red;
+  color: white;
+}
+
+/* 👤 User Section */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.logout-btn {
+  background: none;
+  border: 2px solid #2563eb;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #2563eb;
   color: white;
 }
