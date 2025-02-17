@@ -7,7 +7,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true); // ✅ Added loading state
+  const [loading, setLoading] = useState(true);
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
           setUserName(userDoc.data().name || "User");
         }
       }
-      setLoading(false); // ✅ Stop loading after user data is fetched
+      setLoading(false);
     });
 
     return () => unsubscribe();
@@ -34,3 +34,4 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+export default AuthProvider; // ✅ Ensure this export exists

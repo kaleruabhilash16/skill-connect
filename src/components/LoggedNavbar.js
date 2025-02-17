@@ -22,7 +22,7 @@ const LoggedNavbar = () => {
   return (
     <nav className="logged-navbar">
       <h2>Skill Connect</h2>
-      <div className="nav-links">
+      <div className="log-nav-links">
         <Link to="/logged-homepage" className="nav-link">
           Home
         </Link>

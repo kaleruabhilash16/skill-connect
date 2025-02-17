@@ -29,7 +29,7 @@ const CreatePost = () => {
 
     try {
       await addDoc(collection(db, "posts"), {
-        user: user.email,
+        userUID: user.uid, // ✅ Store UID instead of email
         title,
         shortDescription,
         fullDescription,

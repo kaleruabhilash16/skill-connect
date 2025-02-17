@@ -1,0 +1,184 @@
+/* 🔹 Main Auth Page Layout */
+.auth-page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+/* 🔹 Left Side (Form Section) */
+.auth-container {
+  width: 40%;
+  padding: 40px;
+  background: #220a3e;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 🔹 Toggle Button (Login/Register) */
+.auth-toggle {
+  display: flex;
+  width: 100%;
+  background: #5a2c8f;
+  padding: 6px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.auth-toggle button {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius: 6px;
+}
+
+.auth-toggle button.active {
+  background: black;
+}
+
+/* 🔹 Headings */
+.auth-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #e0b3ff;
+}
+
+.auth-subtext {
+  font-size: 14px;
+  color: #b3a0d1;
+  margin-bottom: 20px;
+}
+
+/* 🔹 Social Login Buttons */
+.social-btn {
+  width: 100%;
+  background: black;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.3s ease;
+}
+
+.social-btn:hover {
+  background: #333;
+}
+
+/* 🔹 Divider */
+.divider {
+  margin: 15px 0;
+  font-size: 12px;
+  color: #cfcfcf;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* 🔹 Form */
+.auth-container form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-container label {
+  font-size: 14px;
+  color: #cfcfcf;
+  margin-bottom: 2px;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background: #2c1a47;
+  color: white;
+  outline: none;
+}
+
+.auth-container input::placeholder {
+  color: #b3a0d1;
+}
+
+.auth-container input:focus {
+  background: #3b2361;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* 🔹 Primary Button */
+.primary-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #a855f7, #d946ef);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.primary-btn:hover {
+  background: linear-gradient(90deg, #9333ea, #c026d3);
+  transform: scale(1.05);
+}
+
+/* 🔹 Right Side (Branding Section) */
+.auth-info {
+  width: 60%;
+  background: #5a2c8f;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.auth-info h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #e0b3ff;
+  margin-bottom: 15px;
+}
+
+/* 🔹 Responsive (Mobile) */
+@media (max-width: 768px) {
+  .auth-page {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .auth-container {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .auth-info {
+    width: 100%;
+    height: auto;
+    padding: 40px 20px;
+  }
+}

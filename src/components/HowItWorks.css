@@ -1,88 +1,147 @@
-.how-it-works {
+/* 🌟 How It Works Container */
+.how-container {
   text-align: center;
   padding: 60px 20px;
-  background: #f8f9fa;
+  background: black;
 }
 
-.how-it-works h2 {
-  font-size: 30px;
-  margin-bottom: 20px;
+/* 🎯 Hero Section */
+.how-hero {
+  margin-top: 30px;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 20px;
 }
 
-.steps-container {
+.how-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: bold;
+  padding: 10px 20px;
+  max-width: 900px;
+  text-align: center;
+  margin-top: 20px;
+  margin: 0;
+  background: linear-gradient(90deg, #cc7eec, #e878cb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.how-subtext {
+  font-size: 20px;
+  font-weight: 400;
+  color: #e0e0e0;
+  text-align: center;
+  margin-top: 10px;
+  max-width: 600px;
+}
+
+/* 🛠 Steps Section */
+.how-steps-container {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin-top: 40px;
 }
 
-.step-card {
+.how-step-card {
   padding: 20px;
   width: 250px;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  background: #1f0a35;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #3d1f60;
 }
 
-.step-card h3 {
+.how-step-card h3 {
   font-size: 18px;
+  color: #e0b3ff;
   margin-bottom: 10px;
 }
 
-.step-card p {
+.how-step-card p {
   font-size: 14px;
-  color: #555;
+  color: #d1c0e0;
 }
 
-.step-card:hover {
+.how-step-card:hover {
   transform: translateY(-5px);
-  transition: all 0.3s ease;
-  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
 }
 
-/* Why Join Us Section */
-.why-join-us {
+/* ⭐ Why Join Us Section */
+.how-why-join {
   margin-top: 50px;
 }
 
-.why-join-us h2 {
+.how-why-title {
   font-size: 28px;
   margin-bottom: 20px;
+  color: white;
 }
 
-.benefits-container {
+/* 📌 Benefits Section */
+.how-benefits-container {
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers the cards horizontally */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  padding: 0 20px; /* Adds padding to avoid touching screen edges */
 }
 
-.benefit-card {
+.how-benefit-card {
   text-align: start;
   padding: 20px;
-  width: 80%;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  background: #1f0a35;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #3d1f60;
 }
 
-.benefit-card h3 {
+.how-benefit-card h3 {
   font-size: 18px;
+  color: #e0b3ff;
   margin-bottom: 10px;
 }
 
-.benefit-card p {
+.how-benefit-card p {
   font-size: 14px;
-  color: #555;
+  color: #d1c0e0;
 }
 
-.benefit-card:hover {
+.how-benefit-card:hover {
   transform: translateY(-5px);
-  transition: all 0.3s ease;
-  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .how-steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .how-step-card {
+    width: 90%;
+  }
+
+  .how-benefits-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .how-benefit-card {
+    width: 90%;
+  }
 }

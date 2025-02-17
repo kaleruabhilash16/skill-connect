@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import "./LoggedHomePage.css";
 
 const LoggedHomePage = () => {
-  const { user, loading } = useAuth(); // ✅ Includes authentication loading state
+  const { user, loading } = useAuth();
   const navigate = useNavigate();
 
   const [posts, setPosts] = useState([]);
@@ -22,7 +22,6 @@ const LoggedHomePage = () => {
   const [requestStatus, setRequestStatus] = useState({});
   const [userNames, setUserNames] = useState({});
 
-  // ✅ UseEffect must always be called at the top level of the component
   useEffect(() => {
     let isMounted = true;
 
@@ -41,8 +40,8 @@ const LoggedHomePage = () => {
           setPosts(postsData);
           setPostsLoading(false);
 
-          fetchUserNames(postsData);
-          fetchRequestStatus(postsData);
+          await fetchUserNames(postsData);
+          await fetchRequestStatus(postsData);
         }
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -50,17 +49,29 @@ const LoggedHomePage = () => {
       }
     };
 
+    // ✅ Fetch User Names using UID
     const fetchUserNames = async (posts) => {
       try {
-        const uniqueUserIds = [...new Set(posts.map((post) => post.user))];
+        const uniqueUserUIDs = [...new Set(posts.map((post) => post.userUID))]; // Extract unique UIDs
         const userMap = {};
 
-        for (const userEmail of uniqueUserIds) {
-          const userRef = doc(db, "users", userEmail);
-          const userDoc = await getDoc(userRef);
-          userMap[userEmail] = userDoc.exists()
-            ? userDoc.data().name || "Unknown User"
-            : "Unknown User";
+        for (const uid of uniqueUserUIDs) {
+          if (!uid) continue; // Skip if UID is missing
+
+          try {
+            const userRef = doc(db, "users", uid); // Fetch using UID
+            const userDoc = await getDoc(userRef);
+
+            if (userDoc.exists()) {
+              userMap[uid] = userDoc.data().name; // ✅ Fetch `name` field
+            } else {
+              console.warn(`User document missing for UID: ${uid}`);
+              userMap[uid] = "Unknown User";
+            }
+          } catch (error) {
+            console.error(`Error fetching user: ${uid}`, error);
+            userMap[uid] = "Unknown User";
+          }
         }
 
         setUserNames(userMap);
@@ -78,7 +89,7 @@ const LoggedHomePage = () => {
         const requestQuery = query(
           requestsRef,
           where("postId", "==", post.id),
-          where("sender", "==", user.email)
+          where("sender", "==", user.uid) // ✅ Check request by UID
         );
         const requestSnapshot = await getDocs(requestQuery);
 
@@ -100,7 +111,6 @@ const LoggedHomePage = () => {
     };
   }, [user]);
 
-  // ✅ Move conditional rendering inside JSX
   if (loading) {
     return <p>Loading authentication...</p>;
   }
@@ -132,7 +142,7 @@ const LoggedHomePage = () => {
               <p>{post.shortDescription}</p>
               <p>
                 <strong>Posted by:</strong>{" "}
-                {userNames[post.user] || "Loading..."}
+                {userNames[post.userUID] || "Loading..."}
               </p>
               <ul>
                 {(post.roles || []).map((role, index) => (
@@ -140,7 +150,7 @@ const LoggedHomePage = () => {
                 ))}
               </ul>
 
-              {post.user !== user.email && (
+              {post.userUID !== user.uid && (
                 <button
                   onClick={() => navigate(`/post/${post.id}`)}
                   disabled={requestStatus[post.id] === "accepted"}

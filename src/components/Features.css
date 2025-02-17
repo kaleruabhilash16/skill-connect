@@ -1,17 +1,89 @@
+/* 🏆 Features Section */
 .features {
   text-align: center;
   padding: 60px 20px;
+  background-color: #2d1545;
+  color: white;
+  max-width: 100%;
+  margin: 0 auto; /* Centers the section */
 }
 
+.core-features-heading {
+  color: white;
+}
+
+/* Feature Cards Container */
 .features-container {
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: stretch;
   gap: 20px;
+  flex-wrap: wrap; /* Ensures responsiveness */
 }
 
+/* Feature Cards */
 .feature-card {
+  flex: 1; /* Ensures equal width distribution */
+  min-width: 280px;
+  max-width: 320px;
   padding: 20px;
-  border: 1px solid #ddd;
-  width: 300px;
-  background: #fff;
+  border-radius: 12px;
+  background: #1f0a35;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+/* Card Hover Effect */
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Feature Card Headings */
+.feature-card h3 {
+  font-size: 20px;
+  color: #e0b3ff;
+  margin-bottom: 10px;
+}
+
+/* Feature Card Text */
+.feature-card p {
+  font-size: 16px;
+  color: #f3eaff;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .features-container {
+    gap: 15px;
+  }
+
+  .feature-card {
+    width: 45%; /* Each card takes about half of the screen */
+  }
+}
+
+@media (max-width: 768px) {
+  .features {
+    max-width: 100%;
+    padding: 40px 15px;
+  }
+
+  .features-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .feature-card {
+    width: 45%; /* Display two cards per row on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-card {
+    width: 90%; /* Display one card per row on very small screens */
+  }
 }

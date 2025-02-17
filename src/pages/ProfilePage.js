@@ -8,7 +8,7 @@ import {
   doc,
   deleteDoc,
   getDoc,
-  setDoc, // ✅ Use setDoc to create if missing
+  setDoc,
 } from "firebase/firestore";
 import { useAuth } from "../context/AuthContext";
 import "./ProfilePage.css";
@@ -49,7 +49,8 @@ const ProfilePage = () => {
         const snapshot = await getDocs(q);
         const userPostsData = snapshot.docs
           .map((doc) => ({ id: doc.id, ...doc.data() }))
-          .filter((post) => post.user === user.email);
+          .filter((post) => post.userUID === user.uid); // ✅ Filter by UID
+
         setUserPosts(userPostsData);
       } catch (error) {
         console.error("Error fetching user posts:", error);
@@ -130,7 +131,7 @@ const ProfilePage = () => {
                 <p>
                   <strong>{post.title}</strong>
                 </p>
-                <p>{post.description}</p>
+                <p>{post.shortDescription}</p>
                 <button
                   className="delete-btn"
                   onClick={() => handleDeletePost(post.id)}

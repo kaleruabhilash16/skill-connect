@@ -5,16 +5,18 @@ import Features from "../components/Features";
 const Home = () => {
   return (
     <>
-      <div className="home">
-        <section className="hero">
-          <h1>Connect, Learn & Grow Together</h1>
-          <p>
-            AI-powered platform for students to showcase skills, find peers, and
-            collaborate on projects.
+      <div className="home-container">
+        <section className="home-hero">
+          <h1 className="home-title">
+            Connect, Collaborate and Learn Together
+          </h1>
+          <p className="home-subtext">
+            Join VIT-AP SkillConnect to find peers, share knowledge, and grow
+            together in your learning journey.
           </p>
-          <div className="hero-buttons">
-            <button className="primary-btn">Get Started</button>
-            <button className="secondary-btn">Learn More</button>
+          <div className="home-hero-buttons">
+            <button className="home-primary-btn">Get Started</button>
+            <button className="home-secondary-btn">Explore Projects</button>
           </div>
         </section>
       </div>
